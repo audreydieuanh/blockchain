@@ -62,6 +62,10 @@ public class BlockChain {
         this.last = newNode;
     } // constructor
 
+    // +---------+------------------------------------------------------
+    // | Methods |
+    // +---------+
+
     /**
      * Mines a new candidate block with the given amount
      * to be added to the end of the chain
@@ -78,15 +82,16 @@ public class BlockChain {
      * If no valid block can be mined using given amount and nonce,
      * throw an Exception
      */
-    public Block mine(int amount, long nonce) throws Exception {
-        Block mineBlock = new Block(this.last.getBlock().getNum() + 1, amount,
-                this.last.getBlock().getHash(), nonce);
-        // if the mined block is invalid
-        if (!mineBlock.getHash().isValid()) {
-            // throw an exception
-            throw new Exception("The hash is invalid with this nonce value. Please try another nonce value");
+    public Block mine(int amount, long nonce) {
+        try {
+            return new Block(this.last.getBlock().getNum() + 1, amount,
+                    this.last.getBlock().getHash(), nonce);
+        } catch (Exception e) {  // if the mined block is invalid
+            System.err.println("The hash is invalid with this nonce value. Please try another nonce value");
+            // return null
+            return null;
         }
-        return mineBlock;
+
     } // mine
 
     /**
