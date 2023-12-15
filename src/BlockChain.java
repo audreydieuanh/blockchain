@@ -2,6 +2,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Nested node static class
+ * @author Audrey Trinh, Jinny Eo
  */
 class Node {
   Block block;
