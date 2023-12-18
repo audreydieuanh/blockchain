@@ -12,3 +12,4 @@ Subsequent blocks of the chain only store the transactions between Alexis and Bl
 
 ## References
 1. CSC207 Linked List reading and lab
+2. Samuel A. Rebelsky
